@@ -1,0 +1,16 @@
+version: '3'
+services:
+  viteapp:
+    container_name: "viteapp"
+    build: .
+    tty: true
+    platform: linux/x86_64
+    volumes:
+      - .:/vite-project
+    ports:
+      - 8080:8080
+      - 24678:24678
+    stdin_open: true
+    # Hot Module Replacement (HMR) is enable for virtual box.
+    environment:
+    - CHOKIDAR_USEPOLLING=true
